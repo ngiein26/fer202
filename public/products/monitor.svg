@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="16" fill="url(#bg3)"/>
+  <!-- Curved monitor frame -->
+  <rect x="50" y="60" width="300" height="150" rx="12" fill="#030712" stroke="#374151" stroke-width="4"/>
+  <rect x="58" y="68" width="284" height="134" rx="8" fill="url(#screen)"/>
+  <!-- Stand -->
+  <path d="M 180 210 L 170 250 L 230 250 L 220 210 Z" fill="#4b5563"/>
+  <rect x="150" y="250" width="100" height="8" rx="4" fill="#6b7280"/>
+  <!-- Display elements inside screen -->
+  <circle cx="120" cy="120" r="30" fill="rgba(255,255,255,0.2)"/>
+  <rect x="170" y="100" width="140" height="12" rx="6" fill="rgba(255,255,255,0.5)"/>
+  <rect x="170" y="122" width="100" height="10" rx="5" fill="rgba(255,255,255,0.3)"/>
+  <rect x="170" y="140" width="120" height="10" rx="5" fill="rgba(255,255,255,0.3)"/>
+</svg>
