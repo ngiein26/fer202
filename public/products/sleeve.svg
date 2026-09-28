@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="leather" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="16" fill="url(#bg6)"/>
+  <!-- Sleeve body -->
+  <rect x="70" y="70" width="260" height="170" rx="12" fill="url(#leather)" stroke="#92400e" stroke-width="3"/>
+  <!-- Flap line -->
+  <path d="M 70 110 Q 200 150 330 110" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="6,4"/>
+  <!-- Button clasp -->
+  <circle cx="200" cy="145" r="10" fill="#f59e0b" stroke="#78350f" stroke-width="2"/>
+  <circle cx="200" cy="145" r="4" fill="#78350f"/>
+</svg>

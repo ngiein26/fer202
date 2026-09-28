@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="100%" height="100%">
+  <rect width="400" height="260" fill="#093121" rx="16"/>
+  <!-- Watch Strap -->
+  <rect x="170" y="25" width="60" height="210" rx="12" fill="#1e293b"/>
+  <!-- Watch Screen Case -->
+  <rect x="155" y="65" width="90" height="130" rx="24" fill="#0f172a" stroke="#10b981" stroke-width="3"/>
+  <!-- Watch Screen Screen Display -->
+  <rect x="162" y="72" width="76" height="116" rx="18" fill="#022c22"/>
+  <circle cx="200" cy="120" r="24" fill="none" stroke="#10b981" stroke-width="4" stroke-dasharray="110 30"/>
+  <text x="200" y="125" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#34d399" text-anchor="middle">72 BPM</text>
+  <rect x="175" y="155" width="50" height="6" rx="3" fill="#10b981" opacity="0.6"/>
+</svg>

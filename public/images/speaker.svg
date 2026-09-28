@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451a03"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="500" fill="url(#bg)" rx="24"/>
+  <circle cx="250" cy="250" r="160" fill="url(#g4)" opacity="0.15"/>
+
+  <!-- Speaker Body -->
+  <rect x="170" y="100" width="160" height="300" rx="40" fill="#1e293b" stroke="url(#g4)" stroke-width="5"/>
+  <rect x="185" y="115" width="130" height="270" rx="30" fill="#0f172a"/>
+  
+  <!-- Drivers -->
+  <circle cx="250" cy="180" r="35" fill="url(#g4)"/>
+  <circle cx="250" cy="180" r="18" fill="#0f172a"/>
+  
+  <circle cx="250" cy="290" r="50" fill="url(#g4)"/>
+  <circle cx="250" cy="290" r="28" fill="#0f172a"/>
+  
+  <!-- Equalizer waves -->
+  <path d="M120 250 A 130 130 0 0 1 120 200" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <path d="M380 250 A 130 130 0 0 0 380 200" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+</svg>
