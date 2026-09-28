@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -37,7 +39,10 @@ export default function LoginPage() {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      setSuccessMessage('Login successful (demo)');
+      setSuccessMessage('Login successful! Redirecting to products page...');
+      setTimeout(() => {
+        router.push('/');
+      }, 1000);
     }
   };
 

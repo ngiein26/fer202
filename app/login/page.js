@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
@@ -42,7 +44,10 @@ export default function LoginPage() {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      setSuccessMessage('Login successful (demo)');
+      setSuccessMessage('Login successful! Redirecting to products page...');
+      setTimeout(() => {
+        router.push('/');
+      }, 1000);
     }
   };
 
