@@ -1,5 +1,7 @@
 import React from 'react';
 import { Product } from '@/data/products';
+import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface ProductCardProps {
   product: Product;
@@ -7,9 +9,9 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <div
+    <Card
       data-testid="product-card"
-      className="flex flex-col justify-between overflow-hidden rounded-2xl border border-[#1e2246] bg-[#0e1022] hover:border-[#383d78] transition-all duration-300 shadow-xl group"
+      className="flex flex-col justify-between overflow-hidden rounded-2xl border border-[#1e2246] bg-[#0e1022] hover:border-[#383d78] transition-all duration-300 shadow-xl group text-slate-100"
     >
       <div className="p-4 flex flex-col">
         {/* Top Image Container */}
@@ -46,14 +48,14 @@ export function ProductCard({ product }: ProductCardProps) {
         >
           {product.price}
         </span>
-        <button
+        <Button
           type="button"
-          className="rounded-lg bg-[#24275a] hover:bg-[#33387d] text-indigo-200 text-xs font-semibold px-4 py-2 transition-colors active:scale-95"
+          className="rounded-lg bg-[#24275a] hover:bg-[#33387d] text-indigo-200 text-xs font-semibold px-4 py-2 h-auto transition-colors active:scale-95 border-none"
         >
           Add to Cart
-        </button>
+        </Button>
       </div>
-    </div>
+    </Card>
   );
 }
 
