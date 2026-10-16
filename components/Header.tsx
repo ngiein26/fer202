@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
+import { useFavorites } from '@/contexts/FavoritesContext';
 import { Button } from '@/components/ui/button';
 
 export default function Header() {
   const { user, signOut, loading } = useAuth();
+  const { favorites } = useFavorites();
 
   const handleLogout = async () => {
     try {
@@ -34,6 +36,23 @@ export default function Header() {
         <div className="flex items-center gap-4">
           {user ? (
             <>
+              {/* Favorites link with count */}
+              <Link
+                href="/favorites"
+                data-testid="link-favorites"
+                className="flex items-center gap-1.5 text-sm font-medium text-slate-200 hover:text-white transition-colors"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-rose-400">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                <span
+                  data-testid="favorites-count"
+                  className="min-w-[20px] h-5 px-1.5 rounded-full bg-rose-500 text-white text-xs font-bold flex items-center justify-center"
+                >
+                  {favorites.length}
+                </span>
+              </Link>
+
               <Link
                 href="/account"
                 data-testid="user-email"
