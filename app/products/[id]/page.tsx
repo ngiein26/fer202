@@ -3,6 +3,11 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import FavoriteButton from '@/components/FavoriteButton';
+import ReviewsSection from '@/components/ReviewsSection';
+import { ReviewsProvider } from '@/contexts/ReviewsContext';
+import { getReviews, type Review } from '@/lib/reviews';
+
+export const dynamicParams = false;
 
 interface ProductDetailPageProps {
   params: Promise<{ id: string }>;
@@ -30,6 +35,13 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 
   if (!product) {
     notFound();
+  }
+
+  let initialReviews: Review[] = [];
+  try {
+    initialReviews = (await getReviews(product.id)).reviews;
+  } catch (e) {
+    console.error('Failed to load reviews', e);
   }
 
   return (
@@ -99,6 +111,10 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             </div>
           </div>
         </div>
+
+        <ReviewsProvider productId={product.id} initialReviews={initialReviews}>
+          <ReviewsSection productId={product.id} />
+        </ReviewsProvider>
       </main>
     </div>
   );
