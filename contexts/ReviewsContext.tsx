@@ -90,12 +90,22 @@ export const ReviewsProvider: React.FC<{
         .eq('id', myReview.id)
         .select('id, user_id, product_id, rating, comment, author, created_at')
         .single();
-      if (error) return { error: error.message };
+      if (error) {
+        if (error.code === 'PGRST116' || error.message?.includes('single JSON object')) {
+          return { error: 'Review no longer exists. Please refresh the page.' };
+        }
+        return { error: error.message };
+      }
       dispatch({ type: 'UPDATE', review: data as Review });
+      await fetch('/api/revalidate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId }),
+      }).catch(() => {});
       router.refresh();
       return {};
     },
-    [myReview, router]
+    [myReview, productId, router]
   );
 
   const deleteReview = useCallback(async () => {
@@ -109,9 +119,14 @@ export const ReviewsProvider: React.FC<{
       dispatch({ type: 'ADD', review: backup });
       return { error: error.message };
     }
+    await fetch('/api/revalidate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ productId }),
+    }).catch(() => {});
     router.refresh();
     return {};
-  }, [myReview, router]);
+  }, [myReview, productId, router]);
 
   return (
     <ReviewsContext.Provider

@@ -191,6 +191,7 @@ export default function ReviewsSection({ productId }: { productId: number }) {
                       data-testid="btn-delete-review"
                       onClick={async () => {
                         setDeleteError('');
+                        setEditing(false);
                         const res = await deleteReview();
                         if (res.error) setDeleteError(res.error);
                       }}

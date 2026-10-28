@@ -112,7 +112,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           </div>
         </div>
 
-        <ReviewsProvider productId={product.id} initialReviews={initialReviews}>
+        <ReviewsProvider key={product.id} productId={product.id} initialReviews={initialReviews}>
           <ReviewsSection productId={product.id} />
         </ReviewsProvider>
       </main>
