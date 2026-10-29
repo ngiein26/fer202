@@ -637,3 +637,58 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Mobile App Experience ===== */
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Respect iPhone notch / home indicator */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.mobile-nav {
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -10px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Reserve space so content is never hidden behind the bottom tab bar */
+.pb-mobile-nav {
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .pb-mobile-nav {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Prevent iOS Safari from zooming into focused fields */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Native-feeling press feedback */
+  a,
+  button {
+    touch-action: manipulation;
+  }
+}
+
+/* Standalone (installed) mode tweaks */
+@media (display-mode: standalone) {
+  body {
+    overscroll-behavior-y: none;
+    user-select: none;
+  }
+  input,
+  textarea {
+    user-select: text;
+  }
+}
+

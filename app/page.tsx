@@ -26,15 +26,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 sm:px-8 py-12 z-10">
+      <main className="flex-1 container mx-auto px-4 sm:px-8 py-6 md:py-12 z-10">
         {/* Hero Section */}
-        <section className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1b1947] border border-[#2e2a73] text-indigo-300 text-[11px] font-semibold tracking-wider uppercase mb-6">
+        <section className="text-center max-w-3xl mx-auto mb-6 md:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 rounded-full bg-[#1b1947] border border-[#2e2a73] text-indigo-300 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase mb-4 md:mb-6">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
             <span>Featured Tech Collection</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+          <h1 className="text-[1.75rem] leading-tight sm:text-5xl font-black tracking-tight text-white mb-3 md:mb-4">
             Discover Cutting-Edge Devices
           </h1>
 
@@ -47,7 +47,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         <form
           method="get"
           action="/"
-          className="flex flex-col sm:flex-row gap-3 mb-10 max-w-2xl mx-auto"
+          className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 mb-6 md:mb-10 max-w-2xl mx-auto"
         >
           <input
             type="text"
@@ -56,14 +56,14 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             data-testid="search-input"
             defaultValue={q ?? ''}
             placeholder="Search products..."
-            className="flex-1 rounded-xl bg-[#0e1022] border border-[#1e2246] text-slate-100 placeholder-slate-500 px-4 py-2.5 text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+            className="flex-1 rounded-xl bg-[#0e1022] border border-[#1e2246] text-slate-100 placeholder-slate-500 px-4 py-3 sm:py-2.5 text-sm focus:outline-none focus:border-indigo-500 transition-colors"
           />
           <select
             id="category-select"
             name="category"
             data-testid="category-select"
             defaultValue={category ?? ''}
-            className="rounded-xl bg-[#0e1022] border border-[#1e2246] text-slate-100 px-4 py-2.5 text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+            className="rounded-xl bg-[#0e1022] border border-[#1e2246] text-slate-100 px-4 py-3 sm:py-2.5 text-sm focus:outline-none focus:border-indigo-500 transition-colors"
           >
             <option value="">All</option>
             {categories.map((cat) => (
@@ -74,7 +74,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             type="submit"
             id="btn-search"
             data-testid="btn-search"
-            className="rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-2.5 text-sm transition-colors"
+            className="rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-[0.98] text-white font-semibold px-6 py-3 sm:py-2.5 text-sm transition-all"
           >
             Search
           </button>
@@ -95,7 +95,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         ) : (
           <div
             data-testid="product-list"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
           >
             {filtered.map((product) => (
               <ProductCard key={product.id} product={product} />

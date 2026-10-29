@@ -51,12 +51,12 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-r from-indigo-900/30 via-purple-900/20 to-blue-900/30 blur-[140px] rounded-full" />
       </div>
 
-      <main className="flex-1 container mx-auto px-4 sm:px-8 py-12 z-10 max-w-4xl">
+      <main className="flex-1 container mx-auto px-4 sm:px-8 py-5 md:py-12 z-10 max-w-4xl">
         {/* Back link */}
         <Link
           href="/"
           data-testid="link-back"
-          className="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 mb-4 md:mb-8 py-1 transition-colors"
         >
           <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 5l-7 7 7 7" />
@@ -66,7 +66,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 
         <div
           data-testid="product-detail"
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-[#0e1022] border border-[#1e2246] rounded-2xl p-8 shadow-2xl"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 bg-[#0e1022] border border-[#1e2246] rounded-2xl p-4 sm:p-8 shadow-2xl"
         >
           {/* Product Image */}
           <div className="flex items-center justify-center rounded-xl bg-slate-950 aspect-square overflow-hidden">
@@ -99,10 +99,10 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               </p>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-3 pt-4 border-t border-[#1e2246] md:border-0 md:pt-0">
               <span
                 data-testid="detail-price"
-                className="text-3xl font-extrabold text-indigo-400"
+                className="text-2xl sm:text-3xl font-extrabold text-indigo-400"
               >
                 ${product.price.toFixed(2)}
               </span>

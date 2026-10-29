@@ -36,10 +36,10 @@ export default function FavoritesPage() {
 
       <main
         data-testid="favorites-page"
-        className="flex-1 container mx-auto px-4 sm:px-8 py-12 z-10 max-w-3xl"
+        className="flex-1 container mx-auto px-4 sm:px-8 py-6 md:py-12 z-10 max-w-3xl"
       >
-        <div className="mb-8">
-          <h1 className="text-3xl font-black text-white tracking-tight mb-2">
+        <div className="mb-5 md:mb-8">
+          <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight mb-1 md:mb-2">
             My Favorites
           </h1>
           <p className="text-slate-400 text-sm">
@@ -65,30 +65,32 @@ export default function FavoritesPage() {
             </Link>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             {favoriteProducts.map((product) => (
               <Card
                 key={product.id}
                 data-testid="favorite-item"
-                className="flex items-center gap-4 p-4 border border-[#1e2246] bg-[#0e1022] rounded-2xl shadow-xl hover:border-[#383d78] transition-all"
+                className="flex items-center gap-3 md:gap-4 p-3 md:p-4 border border-[#1e2246] bg-[#0e1022] rounded-2xl shadow-xl hover:border-[#383d78] transition-all"
               >
-                <div className="w-16 h-16 rounded-xl bg-slate-950 flex-shrink-0 overflow-hidden">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-slate-950 flex-shrink-0 overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-white truncate">{product.name}</h3>
-                  <p className="text-xs text-slate-400 mt-0.5">{product.category}</p>
+                <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:gap-4">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-bold text-white truncate">{product.name}</h3>
+                    <p className="text-xs text-slate-400 mt-0.5">{product.category}</p>
+                  </div>
+                  <span className="text-sm sm:text-base font-extrabold text-indigo-400 flex-shrink-0 mt-1 sm:mt-0">
+                    ${product.price.toFixed(2)}
+                  </span>
                 </div>
-                <span className="text-base font-extrabold text-indigo-400 flex-shrink-0">
-                  ${product.price.toFixed(2)}
-                </span>
                 <Link
                   href={`/products/${product.id}`}
-                  className="flex-shrink-0 px-3 py-1.5 rounded-lg bg-[#24275a] hover:bg-[#33387d] text-indigo-200 text-xs font-semibold transition-colors"
+                  className="flex-shrink-0 px-3 py-2 md:py-1.5 rounded-lg bg-[#24275a] hover:bg-[#33387d] text-indigo-200 text-xs font-semibold transition-colors"
                 >
                   View
                 </Link>
